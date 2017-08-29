@@ -1,5 +1,15 @@
 {
   "name": "contigo-mujer-users",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "f11c5e14",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ],
+  "integrations": {},
+  "type": "ionic1"
 }

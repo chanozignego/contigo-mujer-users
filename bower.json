@@ -1,0 +1,13 @@
+{
+  "name": "Contigo Mujer",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.3.2"
+  },
+  "dependencies": {
+    "ng-token-auth": "^0.0.29",
+    "ngmap": "^1.17.8",
+    "angular-messages": "ng-messages#*",
+    "ionic-native": "^2.0.3"
+  }
+}

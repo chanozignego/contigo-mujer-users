@@ -1,26 +1,31 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# contigo-mujer-users
 
-## How to use this template
+Welcome to Contigo Mujer ionic project!
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+To get started with ionic checkout the docs.
+For iOS/Android you will have to install some tools, follow the ionic guide for each platform.
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+## iOS
 
-### With the Ionic CLI:
+`ionic platform add ios`
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+## Android
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start mySideMenu sidemenu
-```
+`ionic platform add android@latest`
 
-Then, to run it, cd into `mySideMenu` and run:
+We use latest because in the stable version there is a bug with how the res folder is handle
+displaying the default icon.
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
+## Plugins Used
 
-Substitute ios for android if not on a Mac.
+* cordova-plugin-facebook4
+* cordova-plugin-camera
+* cordova-plugin-datepicker
+* phonegap-plugin-push
+
+## Development
+
+Use `ionic serve` for open a local server
+
+Use `ionic run ios/android` to build and run the app in a connected device
 

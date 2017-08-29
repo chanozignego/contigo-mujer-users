@@ -1,0 +1,868 @@
+$red: #D50000;
+
+$yellow: #ffcf00;
+$light_yellow: #ffc82c;
+
+$gray: #878787;
+$light_gray: #E7E7E7;
+
+$blue: #0b486b;
+$light_blue: #21b1ff;
+
+$green: #20BFA9;
+
+$positive: $green;
+$balanced: $yellow;
+$calm: $blue;
+$energized: $light_blue;
+$assertive: $red;
+$royal: #343C47;
+$dark: $gray;
+
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss/ionic";
+
+$offer_details_yellow: $light_yellow;
+
+input::-webkit-input-placeholder {
+	color: $dark;
+	opacity: 0.8;
+}
+
+.login-text {
+	text-align: center;
+	p {
+		display: inline;
+		font-size: 12px;
+	}
+
+}
+.login-link {
+	font-size: 12px;
+	text-decoration: none;
+	color: $positive;
+}
+
+.login-input {
+	border: none;
+	border-bottom: 1px solid;
+}
+
+.login-text-separator {
+	margin: 0px;
+	p {
+		margin: 0px;
+	}
+
+}
+
+.white-gradient {
+	z-index: 2;
+	position: relative;
+	padding-top: 20px;
+	background-image: -webkit-gradient(
+		linear, left top, left bottom,
+		from(rgba(256,256,256,1)),
+  	to(rgba(256,256,256,0)),
+		color-stop(.2,#FFF)
+);
+}
+
+.simp-logo {
+	display: block;
+	width: 40%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 2;
+	position: relative;
+}
+
+.logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.logo-no-text {
+		width: 10%;
+		height: 51px;
+	}
+
+	.logo-text {
+		font-size: 30px;
+		font-weight: bold;
+		&.get {
+			margin-left: 5px;
+			color: $positive;
+		}
+		&.simp {
+			color: $calm;
+		}
+	}
+}
+
+.send-container {
+	z-index: 2;
+	padding: 10px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+
+	.send-button {
+		color: $calm !important;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	.emergency-button {
+		color: $calm !important;
+		background-color: $assertive;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	.action-button {
+		color: $calm !important;
+		font-weight: bold;
+		font-size: 20px;
+	}
+
+	.cancel-button {
+		color: $calm !important;
+		color: $positive;
+		font-weight: bold;
+		font-size: 20px;
+	}	
+}
+
+.login-spacer {
+	height: 1px;
+	margin: 10px 0px;
+	border-bottom: 1px solid #444;
+}
+
+.profile-card {
+	padding: 0 !important;
+	text-align: center;
+	font-weight: 600;
+	font-size: 20px;
+	border-radius: 5px;
+	&.delivered {
+		border: 1px solid $positive;
+		color: $positive;
+		margin-right: 5px;
+	}
+	&.shipments {
+		border: 1px solid $energized;
+		color: $energized;
+		margin-left: 5px;
+	}
+	.header {
+		color: white;
+		padding: 5px;
+		&.delivered {
+			background-color: $positive;
+		}
+		&.shipments {
+			background-color: $energized;
+		}
+		i {
+			float: right;
+		}
+	}
+	.content {
+		padding: 5px 0;
+	}
+}
+
+.profile-picture {
+	display: block;
+	width: 150px;
+	height: 150px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 50%;
+	margin-bottom: 10px;
+}
+
+// Shipments
+
+.shipments-background {
+	background-color: $light_gray;
+}
+
+.item-shipment {
+	padding: 5px 10px;
+}
+
+// Shipment card
+
+.law-card {
+	font-size: 16px;
+	color: black;
+
+	.row {
+		padding: 0;
+		margin: 5px 0;
+		border-radius: 4px;
+	}
+
+	.header {
+		color: white;
+		border-radius: 4px;
+		font-weight: bold;
+
+		i {
+			float: right;
+		}
+
+		&.pending {
+			border: 1px solid $dark;
+			background-color: $dark;
+			.id {
+				background-color: white;
+				color: $dark;
+			}
+		}
+		&.waiting_carriers_assignment,
+		&.waiting_user_confirmation,
+		&.waiting_carrier {
+			border: 1px solid $balanced;
+			background-color: $balanced;
+			.id {
+				background-color: white;
+				color: $balanced;
+			}
+		}
+		&.in_progress {
+			border: 1px solid $energized;
+			background-color: $energized;
+			.id {
+				background-color: white;
+				color: $energized;
+			}
+		}
+		&.delivered {
+			border: 1px solid $positive;
+			background-color: $positive;
+			.id {
+				background-color: white;
+				color: $positive;
+			}
+		}
+		&.canceled {
+			border: 1px solid $assertive;
+			background-color: $assertive;
+			.id {
+				background-color: white;
+				color: $assertive;
+			}
+		}
+	}
+
+	.shipment {
+		color: $dark;
+		border: 1px solid $dark;
+		font-weight: bold;
+		padding: 0 15px;
+	}
+
+	.data {
+		background-color: $dark;
+		color: white;
+		font-weight: bold;
+
+		.col {
+			margin: 5px;
+			padding: 0;
+		}
+
+		.with-right-border {
+			border-right: 2px solid white
+		}
+	}
+}
+
+.shipment-card {
+	font-size: 16px;
+
+	.row {
+		padding: 0;
+		margin: 5px 0;
+		border-radius: 4px;
+	}
+
+	.header {
+		color: white;
+		border-radius: 4px;
+		font-weight: bold;
+
+		i {
+			float: right;
+		}
+
+		&.pending {
+			border: 1px solid $dark;
+			background-color: $dark;
+			.id {
+				background-color: white;
+				color: $dark;
+			}
+		}
+		&.waiting_carriers_assignment,
+		&.waiting_user_confirmation,
+		&.waiting_carrier {
+			border: 1px solid $balanced;
+			background-color: $balanced;
+			.id {
+				background-color: white;
+				color: $balanced;
+			}
+		}
+		&.in_progress {
+			border: 1px solid $energized;
+			background-color: $energized;
+			.id {
+				background-color: white;
+				color: $energized;
+			}
+		}
+		&.delivered {
+			border: 1px solid $positive;
+			background-color: $positive;
+			.id {
+				background-color: white;
+				color: $positive;
+			}
+		}
+		&.canceled {
+			border: 1px solid $assertive;
+			background-color: $assertive;
+			.id {
+				background-color: white;
+				color: $assertive;
+			}
+		}
+	}
+
+	.shipment {
+		color: $dark;
+		border: 1px solid $dark;
+		font-weight: bold;
+		padding: 0 15px;
+	}
+
+	.data {
+		background-color: $dark;
+		color: white;
+		font-weight: bold;
+
+		.col {
+			margin: 5px;
+			padding: 0;
+		}
+
+		.with-right-border {
+			border-right: 2px solid white
+		}
+	}
+}
+
+.scroll {
+	height: 100%;
+}
+
+.offers-list {
+	background-color: $light_gray;
+	height: 100%;
+}
+
+.fixed-header {
+	margin-top: 43px;
+}
+
+.fixed-shipment {
+  width:100%;
+  position:absolute;
+  padding:10px;
+}
+
+.below-shipment {
+	margin-top: 204px;
+	background-color: $light_gray;
+}
+
+// Google Maps
+.ng-map-container {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.send-form {
+	padding: 10px;
+
+	div {
+		color: $calm;
+		background-color: rgba(255, 255, 255, 0.8);
+		margin: 5px 0;
+	}
+
+	i {
+		float: right;
+	}
+}
+
+// Offer
+
+.offer {
+	padding: 0;
+
+	.row {
+		padding: 0;
+	}
+
+	.item {
+		padding: 0;
+	}
+
+	.offer-picture {
+		display: block;
+		width: 65%;
+		height: 60px;
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: 50%;
+	}
+
+	.messenger {
+		font-size: 12px;
+
+		h2 {
+			font-size: 14px;
+		}
+
+		.info {
+			font-weight: bold;
+			color: $dark;
+		}
+	}
+
+	.price {
+		border: 1px solid $dark;
+		border-radius: 5px;;
+		text-align: center;
+		font-weight: bold;
+
+		.header {
+			background-color: $dark;
+			color: white;
+			padding: 8px;
+			font-size: 20px;
+		}
+		.content {
+			color: $dark;
+			padding: 8px;
+			font-size: 25px;
+		}
+	}
+}
+
+// offer details
+.offer-details {
+	p {
+		font-size: 13px;
+	}
+
+	.item {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.button-bar {
+		padding: 0;
+
+		.button {
+			height: 100%;
+			font-weight: bold;
+		}
+	}
+
+	.item-divider {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		background-color: $dark;
+		color: white;
+		font-weight: bold;
+		font-size: 12px;
+	}
+
+	.offer-picture {
+		display: block;
+		width: 100%;
+		height: 65px;
+		border-radius: 50%;
+	}
+
+	.name {
+		font-weight: bold;
+		color: $dark;
+	}
+
+	.info {
+		font-weight: bold;
+		color: $dark;
+		margin-bottom: 10px;
+	}
+}
+
+// Address
+
+.popup {
+	width: 90% !important;
+	max-height: 80% !important;
+}
+
+.popup-head {
+	padding: 10px;
+	background-color: $positive;
+
+	h3 {
+		float: left;
+		color: white;
+		font-size: 20px;
+	}
+}
+
+.popup-body {
+	padding: 0;
+	background-color: $light_gray;
+	overflow-y: visible;
+	overflow-x: hidden;
+
+	.close {
+		top: 10px;
+    right: 10px;
+    position: absolute;
+    font-size: 25px;
+		color: white;
+	}
+}
+
+.popup-body::-webkit-scrollbar {
+	display: none;
+}
+
+.popup-buttons {
+	padding: 0;
+	min-height: 0;
+
+	.button {
+		margin: 0;
+	}
+}
+
+.address-popup {
+	.search-container {
+		padding: 10px 15px 5px 15px;
+		.search-button {
+			margin: 0;
+			i {
+				float: left;
+			}
+		}
+	}
+
+	.divider {
+		padding: 0;
+
+		.col {
+			padding: 0;
+		}
+
+		hr {
+			border: 1px solid $dark;
+		}
+	}
+
+	.my-address {
+		padding: 5px;
+	}
+}
+
+.form-popup {
+	.popup-body {
+		padding: 0 30px 30px 30px;
+		background-color: white;
+	}
+}
+
+// Shipment form
+
+.shipment-popup {
+	.address {
+		padding: 5px 15px;
+
+		.title {
+			font-weight: bold;
+			font-size: 13px;
+			color: $dark;
+		}
+
+		.name {
+			font-size: 15px;
+		}
+
+		.specifications {
+			font-size: 12px;
+		}
+	}
+
+	.popup-body {
+		.button {
+			padding: 0;
+			margin: 0;
+			height: 30px;
+			line-height: 30px;
+			font-size: 11px;
+			font-weight: bold;
+			min-height: 0;
+		}
+	}
+
+	.header {
+		background-color: $dark;
+		color: white;
+		padding: 5px;
+		font-weight: bold;
+	}
+
+	.content {
+		padding: 5px;
+		color: $dark;
+		background-color: white;
+	}
+}
+
+.shipment-alert {
+	.popup-head {
+		background-color: white;
+		border: none;
+
+		h3 {
+			color: $dark;
+		}
+	}
+	.popup-body {
+		background-color: white;
+		padding: 20px;
+	}
+	.popup-buttons {
+		background-color: white;
+
+		button {
+			text-align: right;
+			padding-right: 20px;
+		}
+	}
+}
+
+// Rate form
+
+.rate-popup {
+	.popup-body {
+		padding: 30px;
+		font-size: 15px;
+
+		.ratings {
+			margin-bottom: 15px;
+		}
+
+		.ion-ios-star {
+			font-size: 45px;
+		}
+	}
+}
+
+// No elements
+
+.no-elements {
+	margin-top: 20%;
+	text-align: center;
+	.title {
+		font-size: 17px;
+		color: #333;
+	}
+	.subtitle {
+		font-size: 14px;
+		color: #999;
+	}
+
+	&.more-margin {
+		margin-top: 50%;
+	}
+}
+
+// ratings
+
+.ion-ios-star {
+	color: $positive;
+	padding: 1px;
+	font-size: 17px;
+	&.gray {
+		color: #ccc;
+	}
+}
+
+// facebook login
+.facebook-login {
+	font-weight: 500;
+}
+
+// time picker
+.time-picker {
+	margin: 5px;
+
+	.time-holder {
+		background-color: white;
+		border-radius: 5px;
+		width: 80px;
+		display: inline-block;
+		padding:5px;
+		font-size: 16px;
+	}
+}
+
+// Splash
+.splash-cover {
+	background: url(../img/logo_transparent.png) no-repeat center center;
+	background-size: 350px;
+	height:100%;
+}
+
+// Loading spinners
+.item-icon-left ion-spinner {
+  float: left;
+  margin-left: -3.2em;
+  margin-right: 1em;
+  margin-top: -0.2em;
+ }
+
+// Form errors, ngMessages
+
+/** Styling for the username field **/
+label.item.has-error {
+  border-bottom: 2px solid $red;
+}
+
+/** Styling for the error text and container **/
+.form-errors {
+  margin: 5px 0
+}
+.form-error {
+  padding: 0 0 0 16px;
+  color: $red;
+}
+
+.item-input {
+	padding: 12px 0 0 16px;
+}
+.input-label {
+	padding: 0;
+}
+.item-floating-label .input-label {
+	padding: 0;
+}
+
+#login-form,
+#signUp-form,
+#editProfile-form {
+	margin: 0;
+
+	.row, .col {
+		padding: 0 0 0 0;
+	}
+
+	input {
+		height: 25px;
+	}
+}
+
+// Tabs
+
+.tabs-container {
+	.tab-item-active {
+		border-style: solid;
+		border-width: 0 0 4px 0;
+		color: $positive;
+	}
+
+	.tab-item {
+		font-size: 15px !important;
+	}
+
+	.tabs {
+		height: 56px;
+	}
+}
+
+.tab-send {
+	content: url('../img/motorcycle.svg');
+}
+.tab-shipping {
+	content: url('../img/near_me.svg');
+}
+.tab-shipments {
+	content: url('../img/assignment.svg');
+}
+.tab-profile {
+	content: url('../img/account_circle.svg');
+}
+
+// Hide tabs
+
+.tabs-bottom .tab-nav,
+.tab-nav {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  -webkit-transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
+  transition-timing-function: cubic-bezier(0.36, 0.66, 0.04, 1);
+  -webkit-transition-property: all;
+  transition-property: all;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.tabs-bottom .slide-away,
+.slide-away {
+  transform: translate3d(0, 56px, 0);
+  -webkit-transform: translate3d(0, 56px, 0);
+}
+
+// profile buttons
+
+.profile-button {
+	background-color: #ccc !important;
+	color: white !important;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 0 10px;
+}
+
+// Splash animation
+
+.blink {
+  animation: blink-animation 0.5s infinite alternate;
+  -webkit-animation: blink-animation 0.5s infinite alternate;
+}
+@keyframes blink-animation {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0.3; }
+}
+@-webkit-keyframes blink-animation {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0.3; }
+}
