@@ -1,20 +1,22 @@
 $red: #D50000;
-
 $yellow: #ffcf00;
 $light_yellow: #ffc82c;
-
 $gray: #878787;
 $light_gray: #E7E7E7;
-
 $blue: #0b486b;
 $light_blue: #21b1ff;
-
 $green: #20BFA9;
 
-$positive: $green;
-$balanced: $yellow;
-$calm: $blue;
-$energized: $light_blue;
+$principal_purple: #7A5CA3;
+$dark_purple: #5F207A;
+$principal_green: #45BCCA;
+$dark_green: #006F97;
+$principal_red: #BE1622;
+
+$positive: $principal_purple;
+$balanced: $principal_red;
+$calm: $dark_green;
+$energized: $principal_green;
 $assertive: $red;
 $royal: #343C47;
 $dark: $gray;
