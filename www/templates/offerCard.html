@@ -1,0 +1,39 @@
+<div class="card offer-details">
+	<div class="item item-divider text-center">
+		RETIRO {{offer.pick_time}} hs
+	</div>
+	<div class="item">
+		<div class="row">
+			<div class="col col-25">
+				<img class="offer-picture" ng-src="{{offer.messenger_picture || noImage}}">
+			</div>
+			<div class="col col-75 col-center">
+				<h2 class="name">{{offer.messenger}}</h2>
+				<p>
+					Calificación:
+					<i
+						ng-repeat="star in [1,2,3,4,5]"
+						class="{{offer.messenger_rating >= star ? 'ion-ios-star' : 'ion-ios-star gray'}}"
+					></i>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<p>VEHÍCULO:</p>
+				<div class="info">{{$root.getText(offer.messenger_vehicle)}}</div>
+				<p>TIEMPO DE ENTREGA:</p>
+				<div class="info">{{offer.deliver_time}} mins</div>
+				<p>PRECIO:</p>
+				<div class="info">{{offer.price | currency:$:2}}</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center button-bar" ng-show="showAcceptReject">
+		<a ng-click="reject()" class="button button-dark">Rechazar</a>
+		<a ng-click="accept()" class="button button-calm">Aceptar</a>
+	</div>
+	<div class="text-center button-bar" ng-show="showRate">
+		<button ng-click="rateForm()" class="button button-positive">Calificar</button>
+	</div>
+</div>

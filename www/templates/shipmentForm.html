@@ -1,0 +1,79 @@
+<div class="address">
+	<div class="title">ORIGEN</div>
+	<div class="name">{{shipment.start_address}}</div>
+	<div class="specifications">{{shipment.start_address_specifications}}</div>
+</div>
+
+<div class="address">
+	<div class="title">DESTINO</div>
+	<div class="name">{{shipment.end_address}}</div>
+	<div class="specifications">{{shipment.end_address_specifications}}</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<button
+			class="button button-block"
+			ng-class="{'button-positive': shipment.shipment_type === 'envelope'}"
+			ng-click="setType('envelope')"
+		>
+			SOBRE
+		</button>
+	</div>
+	<div class="col">
+		<button
+			ng-class="{'button-positive': shipment.shipment_type === 'package'}"
+			class="button button-block"
+			ng-click="setType('package')"
+		>
+			PAQUETE
+		</button>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col">
+		<button
+			ng-class="{'button-positive': shipment.pick_inmediatly}"
+			class="button button-block"
+			ng-click="pickInmediatly()"
+		>
+			ENVÍO INMEDIATO
+		</button>
+	</div>
+	<div class="col">
+		<button
+			ng-class="{'button-positive': shipment.pick_time}"
+			class="button button-block"
+			ng-click="pickTime()"
+		>
+			ENVÍO PROGRAMADO
+		</button>
+	</div>
+</div>
+
+<div class="text-center time-picker" ng-show="shipment.pick_time" ng-click="openTimePicker()">
+	<span class="time-holder">{{shipment.suggested_pick_time.split(':')[0] || '--'}}</span>
+	<span>:</span>
+	<span class="time-holder">{{shipment.suggested_pick_time.split(':')[1] || '--'}}</span>
+</div>
+
+<div class="row">
+	<div class="col text-center">
+		<div class="header">
+			<div>DISTANCIA</div>
+			<div><i class="ion-location"></i></div>
+		</div>
+		<div class="content">
+			{{shipment.distance | number:2}}
+			km
+		</div>
+	</div>
+	<div class="col text-center">
+		<div class="header">
+			<div>PRECIO</div>
+			<div><i class="ion-social-usd"></i></div>
+		</div>
+		<div class="content">{{shipment.suggested_price | currency:$:0}}</div>
+	</div>
+</div>

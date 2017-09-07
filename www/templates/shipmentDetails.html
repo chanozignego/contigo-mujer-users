@@ -1,0 +1,58 @@
+<ion-view title="Detalles del envío" hide-nav-bar="{{hideNavBar}}" hide-tabs>
+  <div ng-show="shipment">
+    <shipment-card class="fixed-shipment" ng-class="{'fixed-header': !hideNavBar}" shipment="shipment"></shipment-card>
+    <ion-content class="below-shipment" scrollbar-y="false">
+      <offer-card offer="shipment.accepted_offer" ng-if="shipment.accepted_offer"></offer-card>
+      <ion-list ng-hide="shipment.accepted_offer">
+        <div class="card offer" ng-repeat="o in offers track by o.id">
+          <div class="item" ng-click="offerDetails(o.id)">
+            <div class="row">
+              <div class="col col-30 text-center">
+                <img class="offer-picture" ng-src="{{o.messenger_picture || noImage}}">
+                <div>
+                  <i
+                    ng-repeat="star in [1,2,3,4,5]"
+                    class="{{o.messenger_rating >= star ? 'ion-ios-star' : 'ion-ios-star gray'}}"
+                  ></i>
+                </div>
+              </div>
+              <div class="col col-45 messenger">
+                <h2 class="info">{{o.messenger}}</h2>
+                <div>
+                  Hora:
+                  <span class="info">{{o.pick_time}} hs</span>
+                </div>
+                <div>
+                  Tiempo:
+                  <span class="info">{{o.deliver_time}} mins</span>
+                </div>
+                <div>
+                  Vehículo:
+                  <span class="info">{{$root.getText(o.messenger_vehicle)}}</span>
+                </div>
+              </div>
+              <div class="col col-25 price-col">
+                <div class="price">
+                  <div class="header">
+                    <i class="ion-social-usd"></i>
+                  </div>
+                  <div class="content">{{o.price | number:0}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="no-elements" ng-if="offers.length === 0">
+          <img src="img/no_elements.png" style="display: block; width: 200px; height: auto; margin-left: auto; margin-right: auto;">
+          <div class="title">Aún no hay ofertas</div>
+          <div class="subtitle">¡Volvé mas tarde!</div>
+        </div>
+      </ion-list>
+    </ion-content>
+  </div>
+  <div class="no-elements more-margin" ng-hide="shipment">
+    <img src="img/no_elements.png" style="display: block; width: 200px; height: auto; margin-left: auto; margin-right: auto;">
+    <div class="title">Aún no se han realizado envíos</div>
+    <div class="subtitle">¡Volvé mas tarde!</div>
+  </div>
+</ion-view>

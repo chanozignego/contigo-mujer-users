@@ -1,0 +1,29 @@
+<ion-view hide-nav-bar="true">
+  <ion-content padding="true" scroll="false" class="manual-ios-statusbar-padding">
+    <div>
+      <img ng-src="{{picture}}" class="profile-picture">
+    </div>
+    <div class="text-center">
+      <h3>{{fullName}}</h3>
+      <p>{{email}}</p>
+      <a ui-sref="tabs.editProfile" class="button button-stable button-block profile-button">Editar Perfil</a>
+      <button ng-click="logout()" class="button button-stable profile-button">Salir</button>
+    </div>
+    <div class="row">
+      <div class="col card profile-card delivered">
+        <div class="header delivered">
+          Entregados
+          <i class="ion-ios-box"></i>
+        </div>
+        <div class="content">{{delivered}}</div>
+      </div>
+      <div class="col card profile-card shipments">
+        <div class="header shipments">
+          Envíos
+          <i class="ion-social-usd"></i>
+        </div>
+        <div class="content">{{shipments | currency:$:0}}</div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

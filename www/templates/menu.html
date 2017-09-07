@@ -1,0 +1,47 @@
+<ion-side-menus>
+  <ion-side-menu-content>
+    <!-- <ion-nav-bar class="bar-stable nav-title-slide-ios7"> -->
+      <!-- <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button> -->
+      <ion-header-bar class="bar-stable nav-title-slide-ios7" style="background-color: #7A5CA3; color: white;">
+        <button class="button button-icon button-clear ion-navicon" style="color: white;" menu-toggle="left"></button>
+        <h1 class="title" style="color: white;">Contigo Mujer</h1>
+        <button class="button button-icon button-clear ion-ios-world" style="color: white;" ></button>
+        <!-- New Task button-->
+      </ion-header-bar>
+    <!-- </ion-nav-bar> -->
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-content>
+      <div class="col item-content text-center" style="padding: 10px;">
+        <br>
+        <div style="font-size: 16px;"><b>{{user.name}}</b></div>
+        <div style="font-size: 14px;">{{user.email}}</div>
+        <div style="font-size: 14px;">{{user.phone}}</div>
+        <div style="font-size: 12px;">Edad: {{user.age}}   |   Altura: {{user.height}}cm</div>
+        <!-- <div>
+          <button class="button" style="padding: 0px; font-size: 16px; height: 20px;">Actualizar Información</button>
+        </div> -->
+        <br>
+      </div>
+      <ion-list>
+        <ion-item menu-close href="#/tabs/laws">
+          Normas y leyes
+        </ion-item>
+        <ion-item menu-close href="#/tabs/infos">
+          Más nformación 
+        </ion-item>
+        <ion-item menu-close href="#/tabs/community">
+          Comunidad
+        </ion-item>
+        <ion-item menu-close href="#/tabs/help">
+          Pedir ayuda!
+        </ion-item>
+        <ion-item menu-close ng-click="logout()">
+          Salir
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

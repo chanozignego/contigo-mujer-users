@@ -1,0 +1,24 @@
+<i class="ion-location close"></i>
+<div>
+	<label class="item item-input item-floating-label login-input">
+		<span class="input-label">Dirección</span>
+		<input 
+			places-auto-complete 
+			component-restrictions="{country:'ar'}"
+			types="['address']"
+			on-place-changed="addressForm.setAddress()"
+			type="text"
+			placeholder="Dirección"
+			ng-model="addressForm.address"
+			ng-focus="disableTap()"
+		>
+	</label>
+	<label class="item item-input item-floating-label login-input">
+		<span class="input-label">Piso/Dpto</span>
+		<input type="text" placeholder="Piso/Dpto" ng-model="addressForm.floor">
+	</label>
+	<label class="item item-input item-floating-label login-input">
+		<span class="input-label">Aclaraciones</span>
+		<input type="text" placeholder="Aclaraciones (Opcional)" ng-model="addressForm.specifications">
+	</label>
+</div>

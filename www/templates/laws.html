@@ -1,0 +1,13 @@
+<ion-view name="laws" hide-nav-bar="false">
+  <ion-content class="shipments-background" padding="true" scrollbar-y="false">
+    <div ng-show="laws.length > 0" class="card" ng-repeat="l in laws track by l.id">
+      <div class="item item-shipment" ng-click="openFile(l);">
+        <law-card law="l"></law-card>
+      </div>
+    </div>
+    <div class="no-elements more-margin" ng-hide="laws.length > 0">
+      <div class="title">Todavía no hay leyes cargadas</div>
+      <div class="subtitle">¡Volvé mas tarde!</div>
+    </div>
+  </ion-content>
+</ion-view>

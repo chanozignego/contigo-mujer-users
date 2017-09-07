@@ -1,0 +1,14 @@
+<ion-view name="shipments" hide-nav-bar="true">
+  <ion-content class="shipments-background" padding="true" scrollbar-y="false">
+    <div ng-show="shipments.length > 0" class="card" ng-repeat="s in shipments track by s.id">
+      <div class="item item-shipment" ui-sref="tabs.shipmentDetails({id: s.id})">
+        <shipment-card shipment="s"></shipment-card>
+      </div>
+    </div>
+    <div class="no-elements more-margin" ng-hide="shipments.length > 0">
+      <img src="img/no_elements.png" style="display: block; width: 200px; height: auto; margin-left: auto; margin-right: auto;">
+      <div class="title">Aún no se han realizado envíos</div>
+      <div class="subtitle">¡Volvé mas tarde!</div>
+    </div>
+  </ion-content>
+</ion-view>

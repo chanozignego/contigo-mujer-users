@@ -1,0 +1,59 @@
+<ion-view name="send" hide-nav-bar="true">
+  <ion-content scroll="false">
+    <div>
+      <div class="white-gradient logo-container">
+        <img src="img/simp_logo_without_text.png" class="logo-no-text">
+        <span class="logo-text get">Get</span>
+        <span class="logo-text simp">SIMP</span>
+      </div>
+      <form id="send-form" class="list send-form">
+        <div ng-click="starForm()" class="item">
+          {{ shipment.start_address || 'Origen'}}
+          <i class="ion-location"></i>
+        </div>
+        <div ng-click="endForm()" class="item">
+          {{ shipment.end_address || 'Destino'}}
+          <i class="ion-location"></i>
+        </div>
+      </form>
+    </div>
+
+    <div map-lazy-load="https://maps.google.com/maps/api/js?libraries=places">
+      <ng-map
+        class="ng-map-container"
+        center="-34.603722, -58.381592"
+        zoom="13"
+        clickable-icons="false"
+			  disable-default-u-i="true"
+        zoom-to-include-markers="auto"
+      >
+        <directions
+          travel-mode="DRIVING"
+          suppress-markers="true"
+          origin="{{shipment.start_address_latitude}}, {{shipment.start_address_longitude}}"
+          destination="{{shipment.end_address_latitude}}, {{shipment.end_address_longitude}}"
+        >
+        </directions>
+        <marker
+          id="start"
+          ng-if="shipment.start_address_latitude && shipment.start_address_longitude"
+          position="{{shipment.start_address_latitude}}, {{shipment.start_address_longitude}}"
+          icon="http://54.186.103.202/marker-a-thumb.png"
+        >
+        <marker
+          id="end"
+          ng-if="shipment.end_address_latitude && shipment.end_address_longitude"
+          position="{{shipment.end_address_latitude}}, {{shipment.end_address_longitude}}"
+          icon="http://54.186.103.202/marker-b-thumb.png"
+        >
+        </marker>
+      </ng-map>
+    </div>
+
+    <div class="send-container">
+      <button ng-click="shipmentForm()" class="button button-balanced button-block icon-right ion-ios-arrow-thin-right send-button">
+        Hacer pepido
+      </button>
+    </div>
+  </ion-content>
+</ion-view>

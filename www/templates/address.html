@@ -1,0 +1,27 @@
+<i class="ion-ios-close-outline close" ng-click="addressForm.closeAddressPopup()"></i>
+<div class="search-container">
+	<button class="button button-calm button-full search-button" ng-click="addressForm.formPopup()">
+		<i class="ion-ios-search"></i>
+		Buscar Dirección
+	</button>
+</div>
+<div class="my-address">
+	<div class="row divider">
+		<div class="col col-45">
+			<hr />
+		</div>
+		<div class="col col-10 text-center">ó</div>
+		<div class="col col-45">
+			<hr />
+		</div>
+	</div>
+	<div>
+		Mis últimas direcciones
+		<ion-list>
+			<ion-item ng-click="addressForm.confirmMyAddress(address)" ng-repeat="address in addressForm.myAddresses">
+				<div>{{address.street_number}}</div>
+				<div>{{address.specifications}}</div>
+			</ion-item>
+		</ion-list>
+	</div>
+</div>

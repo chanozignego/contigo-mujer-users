@@ -1,0 +1,48 @@
+<div class="col">
+  <div class="row">
+    <div class="col text-center">
+      Necesitamos la dirección de tu hogar para facilitar el auxilio en caso de emergencia
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="item item-input item-floating-label login-input">
+        <span class="input-label">Calle</span>
+        <input type="text" placeholder="Calle" ng-model="user.street">
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="item item-input item-floating-label login-input">
+        <span class="input-label">Número</span>
+        <input type="text" placeholder="Número" ng-model="user.number">
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label class="item item-input item-floating-label login-input">
+        <span class="input-label">Departamento</span>
+        <input type="text" placeholder="Departamento" ng-model="user.apartment">
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label>
+        <div class="input-label">Municipio</div>
+        <select class="col item item-input item-floating-label login-input" input placeholder="Municipio" ng-model="user.town_id">
+          <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+        </select>
+     </label>
+    </div>
+  </div>
+
+
+
+</div>

@@ -1,0 +1,46 @@
+<div class="shipment-card">
+	<div class="row header text-center" ng-class="shipment.status">
+		<div class="col id">
+			#
+			{{shipment.id}}
+		</div>
+		<div class="col col-75 status">
+			{{$root.getText(shipment.status)}}
+			<i class="ion-ios-box"></i>
+		</div>
+	</div>
+	<div class="row shipment">
+		<div class="col">{{$root.getText(shipment.shipment_type)}}</div>
+		<div class="col text-right">
+			{{shipment.pick_time ? shipment.pick_time : shipment.suggested_pick_time}}
+			hs
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<i class="ion-location"></i>
+			&nbsp
+			Origen:
+			{{shipment.start_address}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<i class="ion-location"></i>
+			&nbsp
+			Destino:
+			{{shipment.end_address}}
+		</div>
+	</div>
+	<div class="row text-center data">
+		<div class="col with-right-border">
+			<i class="ion-location"></i>
+			{{shipment.distance | number:2}}
+			km
+		</div>
+		<div class="col">
+			<i class="ion-social-usd"></i>
+			{{(shipment.accepted_price ? shipment.accepted_price : shipment.suggested_price) | number:2}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+<!-- <ion-side-menus>
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <header class="bar bar-header bar-stable">
+      <h1 class="title">Left</h1>
+    </header>
+    <ion-content class="has-header">
+      <ion-list>
+        <ion-item menu-close href="#/tabs/laws">
+          Leyes
+        </ion-item>
+        <ion-item menu-close href="#/tabs/infos">
+          Información 
+        </ion-item>
+        <ion-item menu-close href="#/tabs/community">
+          Comunidad
+        </ion-item>
+        <ion-item menu-close href="#/tabs/help">
+          Pedir ayuda!
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus> -->
+<ion-view>
+  <ion-tabs class="tabs-container tabs-royal tabs-icon-top">
+    <ion-tab title="Leyes" icon="tab-profile" href="#/tabs/laws">
+      <ion-nav-view name="laws"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Info" icon="tab-profile" href="#/tabs/infos">
+      <ion-nav-view name="infos"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Comunidad" icon="tab-profile" href="#/tabs/community">
+      <ion-nav-view name="community"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Ayuda" icon="tab-profile" href="#/tabs/help">
+      <ion-nav-view name="help"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
