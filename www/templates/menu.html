@@ -4,8 +4,11 @@
       <!-- <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button> -->
       <ion-header-bar class="bar-stable nav-title-slide-ios7" style="background-color: #7A5CA3; color: white;">
         <button class="button button-icon button-clear ion-navicon" style="color: white;" menu-toggle="left"></button>
-        <h1 class="title" style="color: white;">Contigo Mujer</h1>
-        <button class="button button-icon button-clear ion-ios-world" style="color: white;" ></button>
+        <h4 class="title" style="color: white; left: 50px; right: 50px;">Contigo Mujer</h4>
+        <button class="button button-clear menu-close" ui-sref="tabs.messages" href="#/tabs/messages" style="color: white;">
+          <i class="ion-ios-world" style="color: white; font-size: 30px;"></i>
+          <span class="badge" style="background-color: red; font-size: 10px; color: white; margin-left: -10px;">{{messageCount}}</span> 
+        </button>
         <!-- New Task button-->
       </ion-header-bar>
     <!-- </ion-nav-bar> -->

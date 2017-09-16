@@ -1,0 +1,13 @@
+<div class="message-card">
+  <div class="row text-center item-list {{message.read ? 'read' : 'not-read'}}">
+    <img src="http://admin.getsimp.com/default-user.jpg" alt='', style='max-width: 50px; max-height: 50px'>
+    <div class="col">
+      <div class="message-title">
+        {{getMessageText(message)}}
+      </div>
+      <div class="message-date" style="font-size: 10px; text-align: right;">
+        {{getMessageDate(message)}}
+      </div>
+    </div>
+  </div>
+</div>

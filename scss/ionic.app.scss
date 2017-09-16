@@ -854,6 +854,25 @@ label.item.has-error {
 	padding: 0 10px;
 }
 
+// NOTIFICATIONS
+.item-message {
+  padding: 0px 0px; 
+}
+
+.message-card {
+  .item-list:hover {
+    background-color: rgba(247, 247, 247, 0.75)
+  }
+
+  .item-list.not-read {
+    background-color: rgba(237, 242, 250, 0.75);
+  }
+
+  .item-list.not-read:hover {
+    background-color: rgba(231, 231, 231, 0.50);
+  }
+}
+
 // Splash animation
 
 .blink {

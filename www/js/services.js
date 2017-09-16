@@ -111,6 +111,36 @@ function($http, $auth, BASE) {
 	}
 }])
 
+.service('Message', ['$http', '$auth', 'BASE', function($http, $auth, BASE) {
+	let messages = [];
+	const getMessages = () => {
+		return $http.get(BASE + `/users/${$auth.user.id}/messages`)
+			.success((data) => messages = data)
+			.error(() => console.log("Messages fetch fail"));
+	}
+
+	const markAsViewed = () => {
+		return $http.put(BASE + `/users/${$auth.user.id}/mark_messages_as_viewed`)
+			.success(() => {})
+			.error(() => console.log("Messages fetch fail"));
+	}
+
+	const markAsRead = (id) => {
+		return $http.put(BASE + `/messages/${id}/read`)
+			.success(() => {})
+			.error(() => console.log("Messages fetch fail"));
+	}
+
+	return {
+		get: id => messages.filter(s => s.id == id)[0],
+		all: () => messages,
+		unviewedCount: () => messages.filter(s => s.viewed == false).length,
+		markAllAsViewed: () => markAsViewed(),
+		markAsRead: (id) => markAsRead(id),
+		getMessages
+	}
+}])
+
 .service('Offer', ['$http', 'BASE',
 function($http, BASE) {
 	let offers = [];
@@ -120,7 +150,7 @@ function($http, BASE) {
 		if (last != shipmentId) {
 			last = shipmentId;
 			return $http.get(BASE + `/shipments/${shipmentId}/offers`)
-				.success(data => offers = data)
+				.success(data => offers = data.reverse())
 				.error(() => console.log(`Offers fetch for Shipment's id ${shipmentId} fail`));
 		} else {
 			return Promise.resolve();

@@ -1,12 +1,23 @@
-const NO_IMAGE = 'http://54.186.103.202/default-user.jpg';
+const NO_IMAGE = 'http://admin.getsimp.com/default-user.jpg';
 
 angular
 	.module('app.controllers', ['ng-token-auth', 'ngMap', 'ionic.native', 'ngMessages'])
 
-	.controller('appController', ['$auth', '$scope', '$state',
-		function($auth, $scope, $state) {
+	.controller('appController', ['$auth', '$scope', '$state', 'Message',
+		function($auth, $scope, $state, Message) {
+			$scope.messageCount = 0;
 			$scope.user = $auth.user;
 			$scope.logout = () => $auth.signOut().then($state.go('login'));
+			$scope.$on('$ionicView.afterEnter', () => {
+				Message.getMessages()
+					.success(() => $scope.messageCount = Message.unviewedCount());
+			});
+
+	    setInterval(() => {
+	      console.log('update notification task executing every 30 seconds');
+				Message.getMessages()
+					.success(() => $scope.messageCount = Message.unviewedCount());
+	    }, 30000);  //120000 --> 2min //30000 --> 30segs
 	}])
 
 	.controller('lawsController', ['$auth', '$scope', 'Law', 
@@ -42,11 +53,29 @@ angular
 			});
 	}])
 
+	.controller('communityController', ['$auth', '$scope', 'Info', 
+		function($auth, $scope, Info) {
+	}])
+
+	.controller('messagesController', ['$auth', '$scope', 'Message', 
+		function($auth, $scope, Message) {
+			$scope.messages = Message.all();
+			$scope.$on('$ionicView.afterEnter', () => {
+				Message.getMessages()
+					.success(() => $scope.messages = Message.all());
+				Message.markAllAsViewed();
+			});
+			$scope.messageDetails = (message) => {
+				Message.markAsRead(message.id)
+					.success(() => {});
+			}
+	}])
+
 	.controller('helpController', ['$auth', '$scope', '$ionicPopup', '$ionicLoading', 'Assistance',
 		function($auth, $scope, $ionicPopup, $ionicLoading, Assistance) {
+			$scope.address = $auth.user.address;
 			$scope.assistance = {user_id: $auth.user.id, address: $scope.address, town_id: $auth.user.town_id}
 
-			$scope.address = $auth.user.address;
 			$scope.needHelp = () => {
 				$ionicPopup.show({
 					cssClass: 'shipment-popup',

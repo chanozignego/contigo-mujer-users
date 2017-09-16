@@ -10367,6 +10367,21 @@ label.item.has-error {
   font-size: 18px;
   padding: 0 10px; }
 
+
+.item-message {
+  padding: 0px 0px; 
+}
+
+.message-card .item-list:hover {
+  background-color: rgba(247, 247, 247, 0.75)
+}
+.message-card .item-list.not-read {
+  background-color: rgba(237, 242, 250, 0.75);
+}
+.message-card .item-list.not-read:hover {
+  background-color: rgba(231, 231, 231, 0.50);
+}
+
 .blink {
   animation: blink-animation 0.5s infinite alternate;
   -webkit-animation: blink-animation 0.5s infinite alternate; }

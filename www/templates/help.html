@@ -1,23 +1,5 @@
 <ion-view name="help" hide-nav-bar="false">
   <ion-content scroll="false">
-    <!-- <div>
-      <div class="white-gradient logo-container">
-        <img src="img/simp_logo_without_text.png" class="logo-no-text">
-        <span class="logo-text get">Get</span>
-        <span class="logo-text simp">SIMP</span>
-      </div>
-      <form id="send-form" class="list send-form">
-        <div ng-click="starForm()" class="item">
-          {{ shipment.start_address || 'Origen'}}
-          <i class="ion-location"></i>
-        </div>
-        <div ng-click="endForm()" class="item">
-          {{ shipment.end_address || 'Destino'}}
-          <i class="ion-location"></i>
-        </div>
-      </form>
-    </div> -->
-
     <div map-lazy-load="https://maps.google.com/maps/api/js?libraries=places">
       <ng-map
         class="ng-map-container"
@@ -62,7 +44,7 @@
 
     <div class="send-container" ng-show="assistance.state == 'accepted' || assistance.state == 'pending'">
       <div class="item">
-        Tiempo estimado: {{ estimatedTime || '20min' }}
+        Tiempo estimado: {{ assistance.minutes || '20min' }}
       </div>
       <button ng-click="cancelAssistance()" class="button button-energized button-block cancel-button">
         <b> Cancelar asistencia </b>

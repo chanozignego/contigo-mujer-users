@@ -10,7 +10,8 @@ angular.module('app', [
 ])
 
 //.constant('BASE', 'http://0.0.0.0:3000/api/v1')
-.constant('BASE', 'http://192.168.1.7:3000/api/v1')
+//.constant('BASE', 'http://192.168.0.29:3000/api/v1')
+.constant('BASE', 'http://contigomujer.cl/api/v1')
 
 .config(function($ionicConfigProvider, $sceDelegateProvider, $authProvider, $httpProvider, BASE){
 

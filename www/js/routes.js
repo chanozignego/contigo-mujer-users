@@ -55,18 +55,25 @@ angular.module('app.routes', [])
       infoId: ($stateParams) => $stateParams.id
     }
   })
-
-
-  // Shipments
   .state('tabs.community', {
     url: '/community',
     views: {
       'menuContent': {
-        templateUrl: 'templates/shipments.html',
-        controller: 'shipmentsCtrl'
+        templateUrl: 'templates/community.html',
+        controller: 'communityController'
       }
     }
   })
+  .state('tabs.messages', {
+    url: '/messages',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/messages.html',
+        controller: 'messagesController'
+      }
+    }
+  })
+
   .state('tabs.shipmentDetails', {
     url: '/shipments/:id',
     views: {
