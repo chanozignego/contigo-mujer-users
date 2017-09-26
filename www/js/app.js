@@ -36,7 +36,10 @@ angular.module('app', [
     emailRegistrationPath: '/auth/users',
     tokenValidationPath: '/auth/users/validate_token',
     handleLoginResponse: user => user,
-    storage: 'localStorage'
+    storage: 'localStorage',
+    tokenFormat: {
+      "Authorization": "Bearer {{ token }}"
+    },
   });
 
   $httpProvider.interceptors.push(() => {

@@ -195,18 +195,9 @@ function($http, BASE) {
 	}
 }])
 
-.service('Fetcher', ['Shipment', 'Offer', 'Price',
-function(Shipment, Offer, Price) {
+.service('Fetcher', [
+function() {
 	return {
-		initApp: () => {
-			return Price.getValuation()
-				.then(() => Shipment.getShipments())
-				.then(() => {
-					const shipping = Shipment.currentShipment();
-					if (shipping) {
-						return Offer.getOffersForShipment(shipping.id);
-					}
-				});
-		}
+		initApp: () => {}
 	}
 }]);

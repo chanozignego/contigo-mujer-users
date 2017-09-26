@@ -1,29 +1,98 @@
-<ion-view hide-nav-bar="true">
-  <ion-content padding="true" scroll="false" class="manual-ios-statusbar-padding">
-    <div>
-      <img ng-src="{{picture}}" class="profile-picture">
-    </div>
-    <div class="text-center">
-      <h3>{{fullName}}</h3>
-      <p>{{email}}</p>
-      <a ui-sref="tabs.editProfile" class="button button-stable button-block profile-button">Editar Perfil</a>
-      <button ng-click="logout()" class="button button-stable profile-button">Salir</button>
-    </div>
-    <div class="row">
-      <div class="col card profile-card delivered">
-        <div class="header delivered">
-          Entregados
-          <i class="ion-ios-box"></i>
-        </div>
-        <div class="content">{{delivered}}</div>
+<ion-view name="profile" hide-nav-bar="false">
+  <ion-content padding="true" scrollbar-y="false">
+    <!-- <div class="text-center">
+      <img ng-src="{{user.picture}}" class="profile-picture">
+      <button class="button button-stable profile-button" ng-click="updatePicture()">Cambiar foto</button>
+    </div> -->
+    <h5> Información personal </h5>
+    <form novalidate id="editProfile-form" name="form" class="list">
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.name.$invalid && form.$submitted}">
+        <span class="input-label">Nombre</span>
+        <input type="text" name="name" placeholder="Nombre" ng-model="user.name" required>
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.name.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
       </div>
-      <div class="col card profile-card shipments">
-        <div class="header shipments">
-          Envíos
-          <i class="ion-social-usd"></i>
-        </div>
-        <div class="content">{{shipments | currency:$:0}}</div>
+
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.email.$invalid && form.$submitted}">
+        <span class="input-label">Email</span>
+        <input type="email" name="email" placeholder="Email" ng-model="user.email" required>
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.email.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+        <div class="form-error" ng-message="email">El email es inválido</div>
       </div>
-    </div>
+
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.phone.$invalid && form.$submitted}">
+        <span class="input-label">Teléfono</span>
+        <input type="tel" name="phone" placeholder="Teléfono" ng-model="user.phone" required>
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.phone.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+      </div>
+      
+      <br>
+      <br>
+      <h5> Tu dirección </h5>
+
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.street.$invalid && form.$submitted}">
+        <span class="input-label">Calle</span>
+        <input type="text" placeholder="Calle" ng-model="user.street">
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.street.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+      </div>
+
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.number.$invalid && form.$submitted}">
+        <span class="input-label">Número</span>
+        <input type="text" placeholder="Número" ng-model="user.number">
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.number.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+      </div>
+
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.apartment.$invalid && form.$submitted}">
+        <span class="input-label">Departamento</span>
+        <input type="text" placeholder="Departamento" ng-model="user.apartment">
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.apartment.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+      </div>
+
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.town_id.$invalid && form.$submitted}">
+        <div class="input-label has-input">Municipio</div>
+        <select class="col item login-input" input placeholder="Municipio" ng-model="user.town_id">
+          <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+        </select>
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.town_id.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+      </div>
+
+      <br>
+      <br>
+      <h5> Tu apariencia </h5>
+
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.age.$invalid && form.$submitted}">
+        <span class="input-label">Edad (años)</span>
+        <input type="number" min="0" placeholder="Edad (años)" ng-model="user.age">
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.age.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+      </div>
+
+      <label class="item item-input item-floating-label login-input" ng-class="{'has-error': form.height.$invalid && form.$submitted}">
+        <span class="input-label">Altura (cm)</span>
+        <input type="number" min="0" placeholder="Altura (cm)" ng-model="user.height">
+      </label>
+      <div class="form-errors" ng-if="form.$submitted" ng-messages="form.height.$error">
+        <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+      </div>
+
+      <br>
+      <br>
+
+      <button type="submit" ng-click="form.$valid && updateUser()" style="font-weight:500;" class="button button-calm button-block">Guardar</button>
+    </form>
   </ion-content>
 </ion-view>

@@ -131,8 +131,6 @@ angular
 .controller('signUpCtrl', ['$scope', '$auth', '$state', '$ionicLoading', '$ionicPopup', 'Town',
 	function ($scope, $auth, $state, $ionicLoading, $ionicPopup, Town) {
 		$scope.user = { name: "", email: "", password: "" };
-		// TODO: refactor towns!!
-		//$scope.towns = [{id: 1, name: "Antofagasta"}, {id: 2, name: "Sarasa"}, {id: 3, name: "Buenos Aires"}];
 		$scope.towns = Town.all();
 		$scope.$on('$ionicView.afterEnter', () => {
 			Town.getTowns()
@@ -475,32 +473,29 @@ function ($scope, Shipment) {
 	})
 }])
 
-.controller('profileCtrl', ['$scope', '$auth', '$state',
-function ($scope, $auth, $state) {
-	$scope.$on('$ionicView.beforeEnter', () => {
-		const user = $auth.user;
-		$scope.fullName = `${user.first_name} ${user.last_name}`;
-		$scope.email = user.email;
-		$scope.picture = user.picture || NO_IMAGE;
-
-		$scope.delivered = user.delivered || 4356;
-		$scope.shipments = user.shipments || 2654;
-	})
-
-	$scope.logout = () => $auth.signOut().then($state.go('login'));
-}])
-
-.controller('editProfileCtrl', ['$scope', '$auth', '$state', '$cordovaCamera', '$http', '$ionicLoading', '$ionicPopup',
-function ($scope, $auth, $state, $cordovaCamera, $http, $ionicLoading, $ionicPopup) {
+.controller('profileCtrl', ['$scope', '$auth', '$state', '$cordovaCamera', '$http', '$ionicLoading', '$ionicPopup', 'Town',
+function ($scope, $auth, $state, $cordovaCamera, $http, $ionicLoading, $ionicPopup, Town) {
 	$scope.$on('$ionicView.beforeEnter', () => {
 		$scope.user = {
-			first_name: $auth.user.first_name,
-			last_name: $auth.user.last_name,
+			id: $auth.user.id,
+			name: $auth.user.name,
 			email: $auth.user.email,
-			telephone: $auth.user.telephone,
-			picture: $auth.user.picture || NO_IMAGE
+			phone: $auth.user.phone,
+			street: $auth.user.street,
+			number: $auth.user.number,
+			apartment: $auth.user.apartment,
+			town_id: $auth.user.town_id,
+			age: $auth.user.age,
+			height: $auth.user.height,
+			//picture: $auth.user.picture || NO_IMAGE
 		};
 	})
+
+	$scope.towns = Town.all();
+	$scope.$on('$ionicView.afterEnter', () => {
+		Town.getTowns()
+			.success(() => $scope.towns = Town.all());
+	});
 
 	$scope.updateUser = () => {
 		$ionicLoading.show({

@@ -109,12 +109,12 @@ angular.module('app.routes', [])
       }
     }
   })
-  .state('tabs.editProfile', {
-    url: '/profile/edit',
+  .state('tabs.profile', {
+    url: '/profile',
     views: {
       'menuContent': {
-        templateUrl: 'templates/editProfile.html',
-        controller: 'editProfileCtrl'
+        templateUrl: 'templates/profile.html',
+        controller: 'profileCtrl'
       }
     }
   })

@@ -2,10 +2,10 @@
   <div class="row text-center item-list {{message.read ? 'read' : 'not-read'}}">
     <img src="http://admin.getsimp.com/default-user.jpg" alt='', style='max-width: 50px; max-height: 50px'>
     <div class="col">
-      <div class="message-title">
+      <div class="message-title" style="padding-right: 10px; font-size: 14px;">
         {{getMessageText(message)}}
       </div>
-      <div class="message-date" style="font-size: 10px; text-align: right;">
+      <div class="message-date" style="font-size: 10px; text-align: right; padding-right: 10px;">
         {{getMessageDate(message)}}
       </div>
     </div>

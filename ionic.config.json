@@ -10,6 +10,8 @@
     "!www/lib/**/*",
     "!www/**/*.map"
   ],
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic1"
 }
